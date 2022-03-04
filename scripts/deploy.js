@@ -1,7 +1,6 @@
 const hre = require('hardhat');
 
 async function main() {
-  // We get the contract to deploy
   const Comments = await hre.ethers.getContractFactory('Comments');
   const comments = await Comments.deploy();
 
@@ -16,8 +15,6 @@ async function main() {
   console.log('Comments contract deployed to:', comments.address);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main()
   .then(() => process.exit(0))
   .catch((error) => {
