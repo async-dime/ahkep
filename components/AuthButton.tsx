@@ -11,7 +11,7 @@ const AuthButton: React.FunctionComponent<AuthButtonProps> = (props) => {
 
   React.useEffect(() => {
     if (connectQuery.error?.name === 'ConnectorNotFoundError') {
-      toast.error('Please install MetaMask');
+      toast.error('Metamask extension required to sign in');
     }
   }, [connectQuery.error]);
 

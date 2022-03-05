@@ -20,10 +20,8 @@ const Comment: React.FunctionComponent<CommentProps> = ({ comment }) => {
         <Text color="whiteAlpha.800" fontSize="lg">
           {comment.message}
         </Text>
-        <Text>
-          <Text color="whiteAlpha.500" fontSize="md">
-            <TimeAgo date={comment.created_at.toNumber() * 1000} />
-          </Text>
+        <Text color="whiteAlpha.500" fontSize="md">
+          <TimeAgo date={comment.created_at.toNumber() * 1000} />
         </Text>
       </Stack>
     </HStack>

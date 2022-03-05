@@ -9,9 +9,7 @@ import { providers } from 'ethers';
 import Comments from '../components/Comments';
 
 // Provider that will be used when no wallet is connected
-const provider = providers.getDefaultProvider(
-  'https://rpc-mumbai.maticvigil.com'
-);
+const provider = providers.getDefaultProvider(process.env.ALCHEMY_API_KEY_URL);
 
 // Create a react-query client
 const queryClient = new QueryClient({

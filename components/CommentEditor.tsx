@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Button, HStack, Stack, Textarea } from '@chakra-ui/react';
+import { HStack, Stack, Textarea } from '@chakra-ui/react';
 import { constants } from 'ethers';
 import Avatar from '@davatar/react';
-import AuthButton from './AuthButton'
+import AuthButton from './AuthButton';
 import { useAccount } from 'wagmi';
 import useAddComment from '../hooks/useAddComment';
 
@@ -15,14 +15,14 @@ const CommentEditor: React.FunctionComponent<CommentEditorProps> = ({
 }) => {
   const [message, setMessage] = React.useState('');
   const mutation = useAddComment();
-  const [useAccountQuery] = useAccount();
+  const [accountQuery] = useAccount();
 
   return (
     <Stack spacing={3}>
       <HStack spacing={3} alignItems="start">
         <Avatar
           size={48}
-          address={useAccountQuery.data?.address || constants.AddressZero}
+          address={accountQuery.data?.address || constants.AddressZero}
         />
         <Textarea
           value={message}
@@ -40,7 +40,12 @@ const CommentEditor: React.FunctionComponent<CommentEditorProps> = ({
         colorScheme="pink"
         alignSelf="flex-end"
         onClick={() => {
-          mutation.mutateAsync({ message, topic }).then(() => setMessage(''));
+          mutation
+            .mutateAsync({
+              message,
+              topic,
+            })
+            .then(() => setMessage(''));
         }}
         isLoading={mutation.isLoading}
       >
