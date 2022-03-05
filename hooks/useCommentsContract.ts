@@ -1,7 +1,7 @@
 import * as wagmi from 'wagmi';
 import { useProvider, useSigner } from 'wagmi';
 import type { BigNumber } from 'ethers';
-import CommentsContract from '../artifacts/contracts/Comments.sol/Comments.json';
+import CommentsContract from '../utils/Comments.json';
 
 export interface Comment {
   id: string;
